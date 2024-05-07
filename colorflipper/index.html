@@ -6,6 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <div></div>
+    <div>
+        <h1>Background-color: <span></span></h1>
+        <button>Click</button>
+    </div>
+
+    <script>
+
+        let color = ['green','red','gray','black','orange'];
+
+        let btn = document.getElementsByTagName('button')[0];
+
+        let span = document.getElementsByTagName('span')[0];
+
+        let backcolor = document.getElementsByTagName('h1')[0]
+
+        console.log(btn,span,backcolor);
+
+        btn.addEventListener('click',function(){
+
+           let randomno = Math.floor(Math.random() * color.length);
+
+         document.body.style.backgroundColor = color[randomno]
+
+        })
+
+    </script>
 </body>
+
+
 </html>
