@@ -48,6 +48,8 @@ const reviews = [
 
   let next = allarticle.querySelector('.next-btn');
 
+  let ranbtn = allarticle.querySelector('.random-btn')
+
   let currentitem = 0;
 
   window.addEventListener('DOMContentLoaded',function(){
@@ -94,3 +96,11 @@ prev.addEventListener('click',function(){
 
 })
 
+ranbtn.addEventListener('click',function(){
+
+  let ranno = Math.floor(Math.random() * reviews.length);
+
+  showarticle(ranno);
+
+  
+})
