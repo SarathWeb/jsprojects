@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Counter</h1>
+        <div>0</div>
+        <input type="button" placeholder="Decrease" value="Decrease" onclick="decrease()" />
+        <button onclick="reset()">Reset</button>
+        <input type="button" placeholder="Increase" value="Increse" onclick="increase()" />
+    </div>
+
+    <script>
+        let div = document.getElementsByTagName('div')[1];
+
+        let divno = Number(div.innerHTML);
+
+        function reset() {
+
+            div.innerHTML = 0;
+        }
+
+        function increase() {
+
+            divno += 1;
+            div.innerHTML = divno;
+        }
+
+        function decrease() {
+            divno -= 1;
+            div.innerHTML = divno;
+        }
+
+    </script>
+
+</body>
+
+</html>
