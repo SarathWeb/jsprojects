@@ -71,9 +71,18 @@ const menu = [
         img: "./images/item-9.jpeg",
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
+    {
+        id: 9,
+        title: "steak",
+        category: "Dinner",
+        price: 16.1,
+        img: "./images/item-1.jpeg",
+        desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    },
 ];
 
 let sectioncontainer = document.querySelector('.section-center');
+let btncontainer = document.querySelector('.btn-container');
 
 console.log(sectioncontainer);
 
@@ -81,7 +90,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
     displayallmenu(menu);
 
+    filterbtn();
+
 })
+
+
 
 function displayallmenu(menuitem) {
 
@@ -105,34 +118,59 @@ function displayallmenu(menuitem) {
 
 }
 
-    let btncontainer = document.querySelector('.btn-container');
+function filterbtn() {
 
-    
+    let filtervalues = menu.reduce((values, item) => {
+        //  console.log(values,"ss",item,values.includes(item.category));
+        if (!values.includes(item.category)) {
+            values.push(item.category);
 
-    let btn = btncontainer.querySelectorAll('button');
+        }
+        return values;
+    }, ['all'])
 
-    btn.forEach((but)=>{
 
-        but.addEventListener('click',function(){
 
-            console.log(but.dataset.id,'but');
+    let dybut = filtervalues.map((filbut) => {
+        return `<button type="button" class="filter-btn" data-id=${filbut}>${filbut}</button>`
+    })
 
-            let filtermenu = menu.filter((fil)=>{
+    btncontainer.innerHTML = dybut.join(" ");
+
+    let btn = btncontainer.querySelectorAll('.filter-btn');
+
+
+    btn.forEach((but) => {
+
+        but.addEventListener('click', function () {
+
+            console.log(but.dataset.id, 'but');
+
+            let filtermenu = menu.filter((fil) => {
                 console.log(fil.category);
-                if(but.dataset.id == fil.category){
-                   return fil;
+                if (but.dataset.id == fil.category) {
+                    return fil;
                 }
-                
+
             })
 
-            if(but.dataset.id == 'all'){
+            if (but.dataset.id == 'all') {
                 displayallmenu(menu);
             }
-            else{
+            else {
                 displayallmenu(filtermenu);
             }
-           
+
         })
     })
 
-   
+
+}
+
+
+
+
+
+
+
+
