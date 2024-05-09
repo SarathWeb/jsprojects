@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="../videoplay/style.css" />
+  </head>
+  <body>
+    <!-- preloader -->
+    <div class="preloader">
+      <img src="../videoplay/preloader.gif" alt="preloader" class="preloader__item" />
+    </div>
+    <!-- header -->
+    <header>
+      <video muted autoplay loop class="video-container">
+        <source src="../videoplay/video.mp4" type="video/mp4" />
+      </video>
+      <h1>video project</h1>
+      <!-- video switch -->
+      <button class="switch-btn">
+        <span>
+          play
+        </span>
+        <span>
+          pause
+        </span>
+        <span class="switch"></span>
+      </button>
+    </header>
+    <!-- javascript -->
+    <script>  
+
+    let loader = document.querySelector('.preloader');
+
+    let video = document.querySelector('.video-container');
+
+    window.addEventListener('load',function(){
+        loader.classList.add('hide-preloader')
+    })
+    
+    let togglebtn = document.querySelector('.switch-btn');
+
+    togglebtn.addEventListener('click',function(){
+
+        if(!togglebtn.classList.contains('slide')){
+            togglebtn.classList.add('slide');
+            video.pause();
+           
+
+        }else{
+            togglebtn.classList.remove('slide');
+            video.play();
+        }
+
+    })
+
+    </script>
+  </body>
+</html>
