@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="../slider/style.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slide">
+        <img src="../slider/img-1.jpeg" class="slide-img" alt="" />
+        <h1>1</h1>
+      </div>
+      <div class="slide">
+        <img src="../slider/img-1.jpeg" class="slide-img" alt="" />
+        <h1>2</h1>
+      </div>
+      <div class="slide">
+        <img src="../slider/img-1.jpeg" class="slide-img" alt="" />
+        <h1>3</h1>
+      </div>
+      <div class="slide">
+        <div>
+            <img src="../slider/img-1.jpeg" class="slide-img" alt="" />
+          <h4>susan doe</h4>
+          <h1>4</h1>
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button type="button" class="prevBtn">prev</button>
+      <button type="button" class="nextBtn">next</button>
+    </div>
+
+    <!-- javascript -->
+    <script>
+
+   let slide = document.querySelectorAll('.slide');
+   let prevBtn = document.querySelector('.prevBtn');
+   let nextBtn = document.querySelector('.nextBtn');
+
+   let count = 0;
+
+   slide.forEach(function (slides, index) {
+  slides.style.left = `${index * 100}%`;
+});
+
+   nextBtn.addEventListener('click',function(){
+
+    count++;
+    slidermove();
+
+   })
+
+  prevBtn.addEventListener('click',function(){
+console.log(count);
+count--;
+slidermove();
+
+})
+
+function slidermove(){
+
+    console.log(count,'fun');
+
+    if(count > slide.length - 1){
+        count = 0;
+    }
+    if(count < 0){
+        count = slide.length-1;
+    }
+
+    slide.forEach((slider)=>{
+        slider.style.transform = `translateX(-${count * 100}%)`
+    })
+
+}
+
+    </script>
+  </body>
+</html>
