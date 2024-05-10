@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .line {
+        text-decoration: line-through;
+      }
+
+      .recep div {
+        cursor: pointer;
+        margin-bottom: 30px;
+        display: flex;
+      }
+
+      .recep span {
+        display: inline-block;
+        margin-left: 50px;
+      }
+      .recep .dnone {
+        display: none;
+      }
+      .recep .idone {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="todolist">
+      <input type="text" />
+      <button>Add</button>
+    </div>
+    <div class="recep"></div>
+
+    <script>
+      let list = document.querySelector(".todolist input");
+
+      let recep = document.querySelector(".recep");
+
+      let btn = document.querySelector("button");
+
+      btn.onclick = function () {
+        if (list.value != "") {
+          addlist();
+        }
+      };
+
+      function addlist() {
+        let div = document.createElement("div");
+        let text = document.createTextNode(list.value);
+        let span = document.createElement("span");
+        let spantext = document.createTextNode("close");
+        span.appendChild(spantext);
+        div.appendChild(text);
+
+        let parentdiv = document.createElement("div");
+        parentdiv.appendChild(div);
+        parentdiv.appendChild(span);
+        recep.appendChild(parentdiv);
+        list.value = "";
+
+        div.addEventListener("click", function (event) {
+          //Every time listening the Div;
+          console.log(event.target, "btn1");
+          event.target.classList.add("dnone");
+
+          let html = "<input type='text' />";
+          let btnhtml = "<button>Add</button>";
+
+          parentdiv.insertAdjacentHTML("afterbegin", btnhtml);
+          parentdiv.insertAdjacentHTML("afterbegin", html);
+
+          let edittype = parentdiv.querySelectorAll("button");
+
+          edittype.forEach((edit) => {
+            edit.addEventListener("click", function () {
+              console.log(edit, "edit");
+              edit.classList.add("idone");
+              let inputtype = edit.parentElement.querySelector("input");
+              inputtype.classList.add("idone");
+
+              let inputvalue = inputtype.value;
+
+              div.innerHTML = inputvalue;
+
+              event.target.classList.remove("dnone");
+            });
+          });
+        });
+
+        span.addEventListener("click", function (event) {
+          console.log(event.target.parentElement, "atr");
+          event.target.parentElement.style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html>
