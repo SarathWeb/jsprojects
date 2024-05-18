@@ -11,8 +11,7 @@
     />
 
     <!-- styles -->
-    <link rel="stylesheet" href="../Navbartoggle/style.css">
-    
+    <link rel="stylesheet" href="../Navbartoggle/style.css" />
   </head>
   <body>
     <nav>
@@ -71,18 +70,13 @@
     </nav>
     <!-- javascript -->
     <script>
+      let navtoggle = document.querySelector(".nav-toggle");
 
-let navtoggle = document.querySelector('.nav-toggle');
+      let navlinks = document.querySelector(".links");
 
-let navlinks = document.querySelector('.links');
-
-navtoggle.onclick = function(){
-
-    navlinks.classList.toggle('show-links')
-}
-
-
-
+      navtoggle.onclick = function () {
+        navlinks.classList.toggle("show-links");
+      };
     </script>
   </body>
 </html>
