@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DadJokes</title>
+    <link rel="stylesheet" href="../Dadjokes/style.css">
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <button class="btn">random dad jokes</button>
+            <p class="result">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+                unde quibusdam quia ex asperiores consectetur quis maxime corporis
+                suscipit expedita.
+            </p>
+        </div>
+        <script>
+
+            let url = 'https://icanhazdadjoke.com/';
+            let btn = document.querySelector('.btn');
+            let result = document.querySelector('.result');
+
+            btn.addEventListener('click', changejoke);
+
+
+            async function changejoke() {
+
+                let content = await fetch(url, {
+                    headers: {
+                        Accept: 'application/json' // In this case it return text instead json so, add header then receive Json part only;
+                    }
+                });
+
+                let data = await content.json();
+
+                const { id, joke } = data;
+
+                result.innerHTML = joke;
+
+              
+
+            }
+
+            // function changejoke() {
+
+            //     fetch(url, {
+            //         headers: {
+            //             Accept: 'application/json'
+            //         }
+            //     })
+            //         .then((res) => res.json())
+            //         .then((data) => {
+
+            //             const { id, joke } = data
+            //             result.innerHTML = joke;
+            //         })
+            //         .catch(err => {
+            //             console.error(err)
+            //             result.innerHTML = 'Loading...';
+            //         })
+
+
+            // }
+
+
+
+
+
+
+        </script>
+    </body>
+
+</body>
+
+</html>
