@@ -99,6 +99,11 @@ let productcontainer = document.querySelector('.products-container');
 
 function displayproducts() {
 
+    if(filterproducts.length < 1){
+        productcontainer.innerHTML = '<h6>No such products available</h6>'
+        return;
+    }
+
     let allproducts = filterproducts.map((product) => {
 
         const { company, id, image, price, title } = product;
@@ -172,9 +177,10 @@ form.addEventListener('keyup', function () {
 
     filterproducts = products.filter((product) => {
 
-
+          
         return product.title.toLowerCase().includes(value);
     })
+  
     displayproducts();
 })
 
