@@ -36,30 +36,33 @@
         incvalue.forEach((item) => {
 
             let value = Number(item.dataset.value);
+
             let valueup = Math.ceil(value / 1000);
+
+            console.log(valueup);
 
             let startvalue = 0;
 
             let increasevalue = setInterval(() => {
 
-                startvalue += valueup;
+                startvalue += valueup;  
 
                 if (startvalue > value) {
                    
-                    item.textContent = value + '+';
+                    item.textContent = value + '+'; 
+
                     clearInterval(increasevalue);
+
                     return; //After the ifblock statement then run next statement again to stop that using 'return' statement to exit the function;
 
                 }
 
-                item.textContent = startvalue + '+'
+                item.textContent = startvalue + '+'; 
 
             }, 1)
 
-
-
-
         })
+
     </script>
 
 </body>

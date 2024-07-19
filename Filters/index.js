@@ -132,6 +132,8 @@ let companiescontainer = document.querySelector('.companies');
 
 const Button = ['all', ...new Set(products.map((product) => product.company))];
 
+
+
 companiescontainer.innerHTML = Button.map((btn) => {
 
     return `<button class="company-btn" data-id=${btn} > ${btn} </button>`
