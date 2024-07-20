@@ -217,7 +217,7 @@ Slider
   margin: 0 auto;
   margin-bottom: 1rem;
 }
-.slide h1 {
+.slide:nth-child(1) h1 {
   position: absolute;
   top: 50%;
   left: 50%;

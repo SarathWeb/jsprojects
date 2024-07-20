@@ -16,7 +16,7 @@ function getelement(select){
 class Count{
 
  constructor(element,value){
-
+//  console.log(element,value,this);
 
   this.counter = element;
 
@@ -35,8 +35,6 @@ class Count{
   this.increase = this.increase.bind(this);
   this.decrease = this.decrease.bind(this);
   this.reset = this.reset.bind(this);
-
-  console.log(this);
 
   this.increasebtn.addEventListener('click',this.increase);
   this.decreasebtn.addEventListener('click',this.decrease);
@@ -64,10 +62,7 @@ this.valueDOM.textContent = this.value;
 
 let  firstcounter = new Count(getelement('.first-counter'),1);
 
- let secondcounter = new Count(getelement('.second-counter'),10);
-
-
- 
+  let secondcounter = new Count(getelement('.second-counter'),10)
 
 
 

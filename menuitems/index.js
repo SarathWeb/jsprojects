@@ -113,7 +113,7 @@ function displayallmenu(menuitem) {
       </article>`
     })
 
-    sectioncontainer.innerHTML = displayitems.join("");
+    sectioncontainer.innerHTML = displayitems.join(" ");
 
 
 }
@@ -121,7 +121,7 @@ function displayallmenu(menuitem) {
 function filterbtn() {
 
     let filtervalues = menu.reduce((values, item) => {
-          console.log(values,"ss",item,values.includes(item.category));
+        //  console.log(values,"ss",item,values.includes(item.category));
         if (!values.includes(item.category)) {
             values.push(item.category);
 
