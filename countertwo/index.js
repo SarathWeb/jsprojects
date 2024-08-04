@@ -32,31 +32,31 @@ class Count{
 
   this.valueDOM.textContent = this.value;
 
-  this.increase = this.increase.bind(this);
-  this.decrease = this.decrease.bind(this);
-  this.reset = this.reset.bind(this);
+  // this.increase = this.increase.bind(this);
+  // this.decrease = this.decrease.bind(this);
+  // this.reset = this.reset.bind(this);
 
-  this.increasebtn.addEventListener('click',this.increase);
-  this.decreasebtn.addEventListener('click',this.decrease);
-  this.resetbtn.addEventListener('click',this.reset);
+  this.increasebtn.addEventListener('click', () => this.increase());
+                this.decreasebtn.addEventListener('click', () => this.decrease());
+                this.resetbtn.addEventListener('click', () => this.reset());
+            }
 
- }
- increase(){
+            increase = () => {
 
-this.value++;
+                this.value++;
+                this.valueDOM.textContent = this.value;
+            };
 
-this.valueDOM.textContent = this.value;
+            decrease = () => {
+              console.log(this,'dec');
+                this.value--;
+                this.valueDOM.textContent = this.value;
+            };
 
- }
- decrease(){
-this.value--;
-this.valueDOM.textContent = this.value;
-
- }
-reset(){
-this.value = 0;
-this.valueDOM.textContent = this.value;
-}  
+            reset = () => {
+                this.value = 0;
+                this.valueDOM.textContent = this.value;
+            }; 
 }
 
 
